@@ -47,13 +47,60 @@
     <!-- Call to Action -->
     <div class="w-full max-w-md space-y-4">
         <p class="text-sm text-zinc-500">Get early access & the "Self-Hosting Guide":</p>
-        <!-- Replace this ACTION URL with a generic Formspree or Google Form later if you want real emails -->
-        <form action="#" class="flex gap-2">
-            <input type="email" placeholder="dev@example.com" class="flex-1 bg-zinc-900 border border-zinc-800 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/20" required>
-            <button type="submit" class="bg-white text-black font-bold px-6 py-2 rounded-md hover:bg-zinc-200 transition">
-                Join
-            </button>
-        </form>
+
+    <!-- THE FORM -->
+    <form id="waitlistForm" action="https://formspree.io/f/mrezjdjv" method="POST" class="flex gap-2">
+        <input type="hidden" name="_subject" value="New MonoSaaS Lead!">
+
+        <input 
+            type="email" 
+            name="email" 
+            placeholder="dev@example.com" 
+            class="flex-1 bg-zinc-900 border border-zinc-800 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/20" 
+            required
+        >
+        <button type="submit" id="submitBtn" class="bg-white text-black font-bold px-6 py-2 rounded-md hover:bg-zinc-200 transition">
+            Get Guide
+        </button>
+    </form>
+
+    <script>
+        document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
+            e.preventDefault(); // Stop the standard form reload
+            
+            const form = e.target;
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerText;
+            
+            // 1. Change button text to show loading
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            // 2. Send data to Formspree via AJAX
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // 3. SUCCESS: Redirect to Guide URL
+                    window.location.href = "https://www.notion.so/How-to-Deploy-Next-js-to-a-5-VPS-with-Docker-2d27e1f23f19801eb55eefa3f2707141";
+                } else {
+                    alert("Oops! Something went wrong. Please try again.");
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                alert("Error connecting to the server.");
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        });
+    </script>
     </div>
 
     <!-- Footer -->
