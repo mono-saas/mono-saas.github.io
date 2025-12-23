@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonoSaaS - The Majestic Monolith for Next.js</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #09090b; color: #fafafa; font-family: sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #ffffff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-6 text-center">
+
+    <!-- Logo / Brand -->
+    <div class="mb-8">
+        <span class="px-3 py-1 text-xs font-medium border rounded-full border-zinc-800 bg-zinc-900 text-zinc-400">
+            Coming Soon
+        </span>
+    </div>
+
+    <!-- Hero -->
+    <h1 class="text-5xl font-bold tracking-tight sm:text-7xl mb-6 gradient-text">
+        MonoSaaS
+    </h1>
+    <p class="text-xl sm:text-2xl text-zinc-400 max-w-2xl mb-12">
+        The <strong>Majestic Monolith</strong> for Next.js.<br>
+        Self-hostable, Docker-first, and built for the long haul.
+    </p>
+
+    <!-- Value Props -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-2xl w-full mb-12">
+        <div class="p-4 border border-zinc-800 rounded-lg bg-zinc-900/50">
+            <h3 class="font-bold text-white mb-1">🐳 Docker First</h3>
+            <p class="text-sm text-zinc-400">Zero vendor lock-in. Deploy to a $5 VPS or Coolify instantly.</p>
+        </div>
+        <div class="p-4 border border-zinc-800 rounded-lg bg-zinc-900/50">
+            <h3 class="font-bold text-white mb-1">🛡️ Clean Architecture</h3>
+            <p class="text-sm text-zinc-400">Drizzle, BetterAuth, & Shadcn. No spaghetti code.</p>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="w-full max-w-md space-y-4">
+        <p class="text-sm text-zinc-500">Get early access & the "Self-Hosting Guide":</p>
+        <!-- Replace this ACTION URL with a generic Formspree or Google Form later if you want real emails -->
+        <form action="#" class="flex gap-2">
+            <input type="email" placeholder="dev@example.com" class="flex-1 bg-zinc-900 border border-zinc-800 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-white/20" required>
+            <button type="submit" class="bg-white text-black font-bold px-6 py-2 rounded-md hover:bg-zinc-200 transition">
+                Join
+            </button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-20 text-zinc-600 text-sm">
+        <p>Built for developers who want to own their stack.</p>
+    </footer>
+</body>
+</html>
